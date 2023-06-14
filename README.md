@@ -23,8 +23,9 @@ Sigue estos pasos para instalar y configurar la aplicación:
 
 1. Clona este repositorio en tu máquina local.
 2. Ejecuta `npm install` para instalar las dependencias.
-3. Ejecuta `ng serve` para iniciar la aplicación en modo de desarrollo.
-4. Abre tu navegador web y accede a `http://localhost:4200` para ver la aplicación en funcionamiento.
+3. Configura el TOKEN en el environment.ts para el correcto uso de la aplicación
+4. Ejecuta `ng serve` para iniciar la aplicación en modo de desarrollo.
+5. Abre tu navegador web y accede a `http://localhost:4200` para ver la aplicación en funcionamiento.
 
 ¡Listo! Ahora puedes explorar la aplicación y realizar búsquedas de usuarios en GitHub, ver sus perfiles y visualizar el gráfico de seguidores.
 
