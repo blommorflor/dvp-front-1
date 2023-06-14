@@ -1,0 +1,23 @@
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile-details {
+  margin-left: 20px;
+}
+
+.profile-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile-details p {
+  margin-bottom: 5px;
+}

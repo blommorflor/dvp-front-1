@@ -1,0 +1,99 @@
+<form class="search-container">
+  <div>
+    <input nz-input [formControl]="usernameForm" placeholder="Buscar perfil" />
+    <div
+      *ngIf="
+        usernameForm.invalid && (usernameForm.dirty || usernameForm.touched)
+      "
+    >
+      <span class="error-red" *ngIf="usernameForm.errors?.['required']"
+        >*El campo es requerido.</span
+      >
+      <span class="error-red" *ngIf="usernameForm.errors?.['minlength']"
+        >*El texto debe tener al menos 4 caracteres.</span
+      >
+      <span class="error-red" *ngIf="usernameForm.errors?.['pattern']"
+        >*No se permite buscar "doublevpartners".</span
+      >
+    </div>
+  </div>
+
+  <button
+    nzType="primary"
+    nz-button
+    class="btn-buscar"
+    (click)="buscarDesdeForm()"
+    [disabled]="usernameForm.invalid"
+  >
+    Buscar
+  </button>
+</form>
+
+<nz-tabset>
+  <!-- TAB PERFILES -->
+  <nz-tab nzTitle="Perfiles">
+
+    <!-- Quise poner este checkbox ya que me percaté que la mayoria de los perfiles tienen un score de 1,
+      si se desactiva el score que se envia el guard será de 31, asi que lo deja pasar :)  -->
+    <label
+      nzTooltipTitle="Solo demostrativo"
+      nzTooltipPlacement="bottomRight"
+      nz-tooltip
+      style="margin-bottom: 35px"
+      nz-checkbox
+      [(ngModel)]="guard"
+      >Usar guard</label
+    >
+
+    <div class="users-container">
+      <div *ngFor="let perfil of perfiles" class="user-item">
+        <nz-card
+          style="width: 300px"
+          [nzTitle]="perfil.login"
+          [nzExtra]="extraTemplate"
+        >
+          <div class="profile-picture">
+            <img [src]="perfil.avatar_url" alt="Profile Picture" />
+          </div>
+          <p>
+            <strong>Biografía:</strong>
+            {{ perfil.bio ? (perfil.bio | slice : 0 : 50) : "Sin bio" }}
+          </p>
+          <p><strong>ID:</strong> {{ perfil.id }}</p>
+          <p><strong>Seguidores:</strong> {{ perfil.followers }}</p>
+          <p><strong>Score:</strong> {{ perfil.score }}</p>
+        </nz-card>
+        <ng-template #extraTemplate>
+          <a
+            [routerLink]="[
+              '/perfil-detalle',
+              perfil.login,
+              guard ? perfil.score : 31
+            ]"
+            >Detalles</a
+          >
+        </ng-template>
+      </div>
+    </div>
+    <div *ngIf="perfiles.length == 0 && !cargando">
+      <span style="color: grey">No se encontró ningun perfil</span>
+    </div>
+  </nz-tab>
+  <!-- END TAB PERFILES -->
+
+  <!-- TAB GRAFICOS -->
+  <nz-tab nzTitle="Grafico">
+    <div class="chart-container">
+      <canvas #chartCanvas></canvas>
+    </div>
+  </nz-tab>
+  <!-- END TAB GRAFICOS -->
+</nz-tabset>
+
+<app-error
+  *ngIf="error != ''"
+  [errorMessage]="error"
+  (close)="closeErrorDialog()"
+></app-error>
+
+<nz-spin nzSize="large" *ngIf="cargando == true"></nz-spin>

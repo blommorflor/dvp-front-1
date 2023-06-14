@@ -1,0 +1,33 @@
+<button
+  nz-button
+  nzType="primary"
+  (click)="redirectToPerfiles()"
+  style="margin-bottom: 15px"
+>
+  Ir a Lista de Perfiles
+</button>
+
+<nz-card>
+  <div class="profile-container" *ngIf="perfil">
+    <div class="profile-picture">
+      <img [src]="perfil.avatar_url" alt="Profile Picture" />
+    </div>
+    <div class="profile-details">
+      <h2>{{ perfil.login }}</h2>
+      <p><strong>Nombre:</strong> {{ perfil.name || "Sin nombre" }}</p>
+      <p><strong>Compañia:</strong> {{ perfil.company || "Sin compañia" }}</p>
+      <p>
+        <strong>Ubicacion:</strong> {{ perfil.location || "Sin ubicacion" }}
+      </p>
+      <p><strong>Email:</strong> {{ perfil.email || "Sin correo" }}</p>
+      <p><strong>Biografia:</strong> {{ perfil.bio || "Sin biografia" }}</p>
+      <p><strong>Repositorios publicos:</strong> {{ perfil.public_repos }}</p>
+      <p><strong>Followers:</strong> {{ perfil.followers }}</p>
+      <p><strong>Following:</strong> {{ perfil.following }}</p>
+      <p><strong>Creacion</strong> {{ perfil.created_at | date }}</p>
+      <p><strong>Actualizacion:</strong> {{ perfil.updated_at | date }}</p>
+    </div>
+  </div>
+</nz-card>
+
+<nz-spin nzSize="large" *ngIf="!perfil"></nz-spin>

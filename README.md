@@ -1,27 +1,35 @@
-# GitProfiles
+# Prueba Front End #1
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+Esta es una aplicación desarrollada utilizando Angular y Bootstrap. La aplicación permite obtener una lista de usuarios y mostrar la información de sus perfiles utilizando la API pública de GitHub.
 
-## Development server
+## Requisitos generales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Requisitos funcionales:**
 
-## Code scaffolding
+   - La aplicación incluye un campo de entrada de texto y un botón para capturar el nombre de usuario y recuperar la información utilizando el API de GitHub.
+   - Se muestran los primeros 10 usuarios del resultado de búsqueda, incluyendo su nombre de usuario y su ID.
+   - Cada perfil de usuario se convierte en un enlace que redirige a una ruta que incluye el nombre de usuario como parámetro.
+   - Se crea un componente independiente para leer el parámetro de la URL y obtener los datos del usuario utilizando la API de GitHub.
+   - En el componente de perfil de usuario se muestra la imagen del usuario y otra información relevante.
+   - Se incluye un validador que verifica que el texto de búsqueda de usuarios tenga un mínimo de 4 caracteres y no permita buscar la palabra "doublevpartners".
+   - Se integra una librería de gráficos (por ejemplo, ChartJS) para mostrar un gráfico de barras que representa el número de seguidores de los 10 primeros usuarios.
+   - Se incluye un componente para mostrar mensajes de error en toda la aplicación.
+   - Se agrega un método en el servicio que obtiene los datos del API para utilizar tanto Observables como Promises.
+   - Se agrega un Guard que no permite consultar el perfil de usuarios con un 'score' menor a 30.0.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalación y configuración
 
-## Build
+Sigue estos pasos para instalar y configurar la aplicación:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clona este repositorio en tu máquina local.
+2. Ejecuta `npm install` para instalar las dependencias.
+3. Ejecuta `ng serve` para iniciar la aplicación en modo de desarrollo.
+4. Abre tu navegador web y accede a `http://localhost:4200` para ver la aplicación en funcionamiento.
 
-## Running unit tests
+¡Listo! Ahora puedes explorar la aplicación y realizar búsquedas de usuarios en GitHub, ver sus perfiles y visualizar el gráfico de seguidores.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Tecnologías utilizadas
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular
+- Ng Zorro
+- ChartJS

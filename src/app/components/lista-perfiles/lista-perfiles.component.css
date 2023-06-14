@@ -1,0 +1,36 @@
+.search-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.btn-buscar{
+  margin-left: 10px;
+}
+
+.error-red{
+  color: red;
+}
+
+.users-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+}
+
+.user-item {
+  margin-bottom: 16px;
+}
+
+.profile-picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: auto;
+}

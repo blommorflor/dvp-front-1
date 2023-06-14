@@ -1,0 +1,20 @@
+.access-denied-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.access-denied-container h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.access-denied-container p {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.access-denied-container button {
+  width: 200px;
+}
